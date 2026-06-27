@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #F7F6F3;
+      --surface:  #EEECEA;
+      --ink:      #1A1917;
+      --muted:    #7A7873;
+      --accent:   #2D6A4F;
+      --rule:     #D6D3CE;
+      --max:      720px;
+      --gap:      clamp(2rem, 5vw, 4rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: clamp(15px, 1.05vw, 17px);
+      line-height: 1.7;
+      padding: 0 1.25rem;
+    }
+
+    /* ── Layout wrapper ── */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: var(--gap);
+    }
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: .01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .85rem;
+      font-weight: 400;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: var(--gap) 0;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: var(--gap);
+    }
+    .hero-eyebrow {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      line-height: 1.12;
+      font-weight: 400;
+      margin-bottom: 1.4rem;
+      max-width: 600px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-bio {
+      max-width: 480px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: .65rem 1.4rem;
+      border-radius: 4px;
+      font-size: .88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-ghost {
+      border: 1px solid var(--rule);
+      color: var(--ink);
+    }
+    .btn-ghost:hover { border-color: var(--ink); }
+
+    /* ── Section titles ── */
+    .section { margin-bottom: var(--gap); }
+    .section-label {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 3rem;
+    }
+    .about-grid p { color: var(--muted); line-height: 1.8; }
+    .about-grid h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+
+    /* ── Skills ── */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+    }
+    .skill-tag {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      padding: .35rem .9rem;
+      border-radius: 100px;
+      font-size: .82rem;
+      color: var(--ink);
+    }
+
+    /* ── Projects ── */
+    .project-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 1rem;
+      transition: border-color .2s;
+    }
+    .project-card:hover { border-color: var(--ink); }
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: .35rem;
+    }
+    .project-desc { color: var(--muted); font-size: .9rem; line-height: 1.65; }
+    .project-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .75rem; }
+    .project-tag {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: #e8f4ef;
+      padding: .2rem .6rem;
+      border-radius: 4px;
+    }
+    .project-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 500;
+      white-space: nowrap;
+      padding-top: .2rem;
+      transition: color .2s;
+    }
+    .project-link:hover { color: var(--ink); }
+
+    /* ── Education ── */
+    .edu-item { margin-bottom: 1.4rem; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-degree {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+    }
+    .edu-school { color: var(--muted); font-size: .88rem; margin-top: .15rem; }
+    .edu-year {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: .2rem;
+    }
+
+    /* ── Contact ── */
+    .contact-row {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 400;
+      transition: color .2s;
+    }
+    .contact-link:hover { color: var(--ink); }
+    .contact-link svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem 0 3rem;
+      margin-top: var(--gap);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 540px) {
+      .about-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+      .project-card { grid-template-columns: 1fr; }
+      nav { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      footer { flex-direction: column; gap: .5rem; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-name">Your Name</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Student · Open to Opportunities</p>
+    <h1>Building things I <em>care about,</em> one project at a time.</h1>
+    <p class="hero-bio">
+      I'm a Computer Science student at XYZ University, passionate about
+      solving real problems through thoughtful code and clean design.
+      Currently in my 3rd year, looking for internships and collaborations.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View my work</a>
+      <a href="resume.pdf" class="btn btn-ghost" download>Download CV</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <p class="section-label">About</p>
+    <div class="about-grid">
+      <div>
+        <h3>Who I am</h3>
+        <p>
+          A curious student who loves turning ideas into working products.
+          I enjoy both the technical and creative sides of building software —
+          from writing clean backend logic to designing interfaces people
+          actually enjoy using.
+        </p>
+      </div>
+      <div>
+        <h3>What I'm studying</h3>
+        <p>
+          BSc Computer Science at XYZ University (2022–2026).
+          My coursework covers data structures, algorithms, databases,
+          and software engineering. Final-year project: a smart study planner
+          powered by machine learning.
+        </p>
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- SKILLS -->
+    <p class="section-label" style="margin-top:2rem;">Skills</p>
+    <div class="skills-list">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">React</span>
+      <span class="skill-tag">HTML / CSS</span>
+      <span class="skill-tag">Node.js</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag">Figma</span>
+      <span class="skill-tag">Machine Learning</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <p class="section-label">Projects</p>
+    <div class="project-list">
+
+      <div class="project-card">
+        <div>
+          <p class="project-title">Smart Study Planner</p>
+          <p class="project-desc">
+            A web app that builds personalized study schedules using ML.
+            Analyses past performance and deadlines to suggest optimal
+            daily tasks. Final-year project.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">React</span>
+            <span class="project-tag">ML</span>
+          </div>
+        </div>
+        <a href="https://github.com" class="project-link">↗ GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <p class="project-title">Campus Lost & Found</p>
+          <p class="project-desc">
+            A platform for students to report and recover lost items on
+            campus. Built with a team of 3 in a 48-hour hackathon.
+            Won best social impact award.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">MongoDB</span>
+            <span class="project-tag">Hackathon</span>
+          </div>
+        </div>
+        <a href="https://github.com" class="project-link">↗ GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <p class="project-title">Expense Tracker CLI</p>
+          <p class="project-desc">
+            A command-line tool to track monthly spending with categories,
+            summaries, and CSV export. A personal-use project that turned
+            into a solid Python portfolio piece.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">CLI</span>
+          </div>
+        </div>
+        <a href="https://github.com" class="project-link">↗ GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section">
+    <p class="section-label">Education</p>
+    <div class="edu-item">
+      <p class="edu-degree">BSc Computer Science</p>
+      <p class="edu-school">XYZ University — Your City</p>
+      <p class="edu-year">2022 – 2026</p>
+    </div>
+    <div class="edu-item">
+      <p class="edu-degree">A-Levels · Mathematics, Physics, CS</p>
+      <p class="edu-school">ABC School</p>
+      <p class="edu-year">2020 – 2022</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <p class="section-label">Contact</p>
+    <p style="color:var(--muted); margin-bottom:1.2rem; max-width:420px;">
+      Open to internships, freelance projects, and interesting conversations.
+      Feel free to reach out.
+    </p>
+    <div class="contact-row">
+      <a href="mailto:you@email.com" class="contact-link">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        you@email.com
+      </a>
+      <a href="https://linkedin.com/in/yourname" class="contact-link" target="_blank">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 11v5M8 8v.01M12 16v-5m0 0c0-1.5 4-1.5 4 0v5"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/yourname" class="contact-link" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Your Name</span>
+    <span>Built with HTML · Hosted on GitHub Pages</span>
+  </footer>
+
+</div>
+</body>
+</html>
