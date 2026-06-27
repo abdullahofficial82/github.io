@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <title>Muhammad Abdullah Hassan — Bioinformatics Researcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #F7F6F3;
-      --surface:  #EEECEA;
-      --ink:      #1A1917;
-      --muted:    #7A7873;
-      --accent:   #2D6A4F;
-      --rule:     #D6D3CE;
-      --max:      720px;
-      --gap:      clamp(2rem, 5vw, 4rem);
+      --bg:       #F5F4F0;
+      --surface:  #ECEAE4;
+      --ink:      #1C1B18;
+      --muted:    #6E6C65;
+      --accent:   #1B5E3B;
+      --accent2:  #2D8653;
+      --rule:     #D8D5CE;
+      --tag-bg:   #E0EDE6;
+      --max:      760px;
+      --gap:      clamp(2.5rem, 5vw, 4.5rem);
     }
 
     html { scroll-behavior: smooth; }
@@ -26,252 +28,300 @@
       color: var(--ink);
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      font-size: clamp(15px, 1.05vw, 17px);
-      line-height: 1.7;
+      font-size: clamp(14.5px, 1vw, 16.5px);
+      line-height: 1.75;
       padding: 0 1.25rem;
     }
 
-    /* ── Layout wrapper ── */
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
+    .wrap { max-width: var(--max); margin: 0 auto; }
 
-    /* ── Nav ── */
+    /* ── NAV ── */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.8rem 0;
+      padding: 1.6rem 0;
       border-bottom: 1px solid var(--rule);
       margin-bottom: var(--gap);
+      flex-wrap: wrap;
+      gap: .8rem;
     }
     .nav-name {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       letter-spacing: .01em;
     }
-    .nav-links {
-      display: flex;
-      gap: 1.8rem;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
     .nav-links a {
       text-decoration: none;
       color: var(--muted);
-      font-size: .85rem;
-      font-weight: 400;
-      letter-spacing: .04em;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .08em;
       text-transform: uppercase;
       transition: color .2s;
     }
-    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover { color: var(--accent); }
 
-    /* ── Hero ── */
+    /* ── HERO ── */
     .hero {
       padding: var(--gap) 0;
       border-bottom: 1px solid var(--rule);
       margin-bottom: var(--gap);
     }
     .hero-eyebrow {
-      font-size: .78rem;
+      font-size: .72rem;
       font-weight: 500;
-      letter-spacing: .12em;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent2);
       margin-bottom: 1.2rem;
     }
     .hero h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
-      line-height: 1.12;
+      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+      line-height: 1.1;
       font-weight: 400;
       margin-bottom: 1.4rem;
-      max-width: 600px;
+      max-width: 620px;
     }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
     .hero-bio {
-      max-width: 480px;
+      max-width: 520px;
       color: var(--muted);
+      line-height: 1.8;
       margin-bottom: 2rem;
-      line-height: 1.75;
     }
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+    .hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; }
     .btn {
       display: inline-block;
-      padding: .65rem 1.4rem;
+      padding: .6rem 1.35rem;
       border-radius: 4px;
-      font-size: .88rem;
+      font-size: .85rem;
       font-weight: 500;
       text-decoration: none;
-      transition: background .2s, color .2s;
+      transition: background .2s, color .2s, border-color .2s;
     }
-    .btn-primary {
-      background: var(--ink);
-      color: var(--bg);
-    }
-    .btn-primary:hover { background: var(--accent); }
-    .btn-ghost {
-      border: 1px solid var(--rule);
-      color: var(--ink);
-    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent2); }
+    .btn-ghost { border: 1px solid var(--rule); color: var(--ink); }
     .btn-ghost:hover { border-color: var(--ink); }
 
-    /* ── Section titles ── */
+    /* ── SECTION LABEL ── */
     .section { margin-bottom: var(--gap); }
     .section-label {
-      font-size: .75rem;
+      font-size: .7rem;
       font-weight: 500;
-      letter-spacing: .12em;
+      letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 1.6rem;
       display: flex;
       align-items: center;
-      gap: .75rem;
+      gap: .8rem;
     }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
-    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
-    /* ── About ── */
+    /* ── ABOUT ── */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem 3rem;
+      gap: 1.8rem 3rem;
     }
-    .about-grid p { color: var(--muted); line-height: 1.8; }
     .about-grid h3 {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 400;
-      margin-bottom: .5rem;
+      margin-bottom: .45rem;
     }
+    .about-grid p { color: var(--muted); line-height: 1.8; font-size: .95rem; }
 
-    /* ── Skills ── */
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .55rem;
+    /* ── SKILLS ── */
+    .skills-group { margin-bottom: 1.2rem; }
+    .skills-group-label {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .6rem;
     }
+    .skills-list { display: flex; flex-wrap: wrap; gap: .45rem; }
     .skill-tag {
       background: var(--surface);
       border: 1px solid var(--rule);
-      padding: .35rem .9rem;
+      padding: .3rem .85rem;
       border-radius: 100px;
-      font-size: .82rem;
+      font-size: .8rem;
       color: var(--ink);
     }
 
-    /* ── Projects ── */
-    .project-list { display: flex; flex-direction: column; gap: 1.2rem; }
-    .project-card {
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 1.6rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .exp-date {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: .25rem;
+      min-width: 120px;
+    }
+    .exp-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin-bottom: .2rem;
+    }
+    .exp-org {
+      font-size: .82rem;
+      color: var(--accent2);
+      font-weight: 500;
+      margin-bottom: .6rem;
+    }
+    .exp-desc { color: var(--muted); font-size: .9rem; line-height: 1.75; }
+    .exp-desc a { color: var(--accent); text-decoration: none; }
+    .exp-desc a:hover { text-decoration: underline; }
+
+    /* ── RESEARCH ── */
+    .research-card {
       background: var(--surface);
       border: 1px solid var(--rule);
       border-radius: 8px;
-      padding: 1.5rem 1.75rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: start;
-      gap: 1rem;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.1rem;
       transition: border-color .2s;
     }
-    .project-card:hover { border-color: var(--ink); }
-    .project-title {
+    .research-card:hover { border-color: var(--accent); }
+    .research-card:last-child { margin-bottom: 0; }
+    .research-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.15rem;
+      font-size: 1rem;
       font-weight: 400;
       margin-bottom: .35rem;
     }
-    .project-desc { color: var(--muted); font-size: .9rem; line-height: 1.65; }
-    .project-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .75rem; }
-    .project-tag {
-      font-size: .72rem;
+    .research-meta { font-size: .8rem; color: var(--muted); margin-bottom: .5rem; }
+    .research-desc { font-size: .88rem; color: var(--muted); line-height: 1.7; }
+    .research-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .7rem; }
+    .research-tag {
+      font-size: .68rem;
       font-weight: 500;
       letter-spacing: .06em;
       text-transform: uppercase;
       color: var(--accent);
-      background: #e8f4ef;
-      padding: .2rem .6rem;
+      background: var(--tag-bg);
+      padding: .18rem .55rem;
       border-radius: 4px;
     }
-    .project-link {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: .82rem;
+
+    /* ── INTERESTS ── */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: .8rem;
+    }
+    .interest-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: .9rem 1.1rem;
+    }
+    .interest-card h4 {
+      font-size: .88rem;
       font-weight: 500;
+      margin-bottom: .25rem;
+    }
+    .interest-card p { font-size: .78rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── EDUCATION ── */
+    .edu-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 1.6rem;
+      margin-bottom: 1.8rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .edu-year {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      color: var(--muted);
       white-space: nowrap;
       padding-top: .2rem;
-      transition: color .2s;
+      min-width: 120px;
     }
-    .project-link:hover { color: var(--ink); }
-
-    /* ── Education ── */
-    .edu-item { margin-bottom: 1.4rem; }
-    .edu-item:last-child { margin-bottom: 0; }
     .edu-degree {
       font-family: 'DM Serif Display', serif;
       font-size: 1.05rem;
       font-weight: 400;
+      margin-bottom: .2rem;
     }
-    .edu-school { color: var(--muted); font-size: .88rem; margin-top: .15rem; }
-    .edu-year {
-      font-size: .75rem;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-top: .2rem;
-    }
+    .edu-inst { font-size: .82rem; color: var(--accent2); font-weight: 500; margin-bottom: .3rem; }
+    .edu-detail { font-size: .85rem; color: var(--muted); line-height: 1.65; }
 
-    /* ── Contact ── */
-    .contact-row {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      align-items: center;
+    /* ── AWARDS ── */
+    .award-item { display: flex; gap: .8rem; align-items: flex-start; margin-bottom: .9rem; }
+    .award-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: .55rem;
+      flex-shrink: 0;
+    }
+    .award-item p { font-size: .9rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
     .contact-link {
       display: flex;
       align-items: center;
-      gap: .45rem;
+      gap: .5rem;
       text-decoration: none;
       color: var(--muted);
       font-size: .88rem;
-      font-weight: 400;
-      transition: color .2s;
+      padding: .75rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      transition: border-color .2s, color .2s;
     }
-    .contact-link:hover { color: var(--ink); }
-    .contact-link svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+    .contact-link:hover { border-color: var(--accent); color: var(--ink); }
+    .contact-link svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; flex-shrink: 0; }
 
-    /* ── Footer ── */
+    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--rule);
-      padding: 2rem 0 3rem;
+      padding: 1.8rem 0 3rem;
       margin-top: var(--gap);
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: var(--muted);
-      font-size: .78rem;
+      font-size: .75rem;
+      flex-wrap: wrap;
+      gap: .5rem;
     }
 
-    /* ── Responsive ── */
-    @media (max-width: 540px) {
-      .about-grid { grid-template-columns: 1fr; gap: 1.4rem; }
-      .project-card { grid-template-columns: 1fr; }
-      nav { flex-direction: column; gap: 1rem; align-items: flex-start; }
-      footer { flex-direction: column; gap: .5rem; align-items: flex-start; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 560px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .exp-item, .edu-item { grid-template-columns: 1fr; gap: .3rem; }
+      .exp-date, .edu-year { min-width: unset; }
+      nav { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -280,26 +330,29 @@
 
   <!-- NAV -->
   <nav>
-    <span class="nav-name">Your Name</span>
+    <span class="nav-name">Muhammad Abdullah Hassan</span>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-eyebrow">Student · Open to Opportunities</p>
-    <h1>Building things I <em>care about,</em> one project at a time.</h1>
+    <p class="hero-eyebrow">Bioinformatician · Molecular Biologist · MPhil Researcher · Open to PhD Opportunities</p>
+    <h1>Where <em>wet-lab biology</em> meets computational analysis.</h1>
     <p class="hero-bio">
-      I'm a Computer Science student at XYZ University, passionate about
-      solving real problems through thoughtful code and clean design.
-      Currently in my 3rd year, looking for internships and collaborations.
+      I'm Muhammad Abdullah Hassan, a bioinformatics researcher at the University of the Punjab, Lahore.
+      My work spans DNA recombinant techniques and protein purification in the lab,
+      and NGS pipelines, genomics, and drug design in silico —
+      with a shared goal of understanding disease at a molecular level.
     </p>
     <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">View my work</a>
-      <a href="resume.pdf" class="btn btn-ghost" download>Download CV</a>
+      <a href="#research" class="btn btn-primary">View Research</a>
+      <a href="05_Abdullah_CV.pdf" class="btn btn-ghost" download>Download CV</a>
     </div>
   </section>
 
@@ -310,140 +363,287 @@
       <div>
         <h3>Who I am</h3>
         <p>
-          A curious student who loves turning ideas into working products.
-          I enjoy both the technical and creative sides of building software —
-          from writing clean backend logic to designing interfaces people
-          actually enjoy using.
+          A researcher with hands-on experience in both wet-lab molecular biology and
+          computational bioinformatics. I enjoy bridging experimental and in silico
+          approaches to tackle complex biological questions, particularly around
+          infectious disease genomics and antiviral drug discovery.
         </p>
       </div>
       <div>
-        <h3>What I'm studying</h3>
+        <h3>Current work</h3>
         <p>
-          BSc Computer Science at XYZ University (2022–2026).
-          My coursework covers data structures, algorithms, databases,
-          and software engineering. Final-year project: a smart study planner
-          powered by machine learning.
+          MPhil researcher at the School of Biological Sciences, University of the Punjab,
+          conducting bioinformatics analysis on dengue virus genomics — including genome
+          mapping and evolutionary classification — under Dr. Akhtar Ali.
+        </p>
+      </div>
+      <div>
+        <h3>Languages</h3>
+        <p>English — IELTS C1 (7.0 Bands)<br/>Urdu — Native</p>
+      </div>
+      <div>
+        <h3>Location</h3>
+        <p>Lahore, Pakistan<br/>Open to international PhD positions.</p>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <p class="section-label" style="margin-top:2.5rem;">Skills</p>
+
+    <div class="skills-group">
+      <p class="skills-group-label">Bioinformatics & Computational</p>
+      <div class="skills-list">
+        <span class="skill-tag">Sequence Alignment</span>
+        <span class="skill-tag">NGS Analysis</span>
+        <span class="skill-tag">Genome Mapping</span>
+        <span class="skill-tag">Phylogenetics</span>
+        <span class="skill-tag">BLAST</span>
+        <span class="skill-tag">UCSC Genome Browser</span>
+        <span class="skill-tag">NCBI / GENBANK</span>
+        <span class="skill-tag">UNIPROT</span>
+        <span class="skill-tag">STRING / KEGG</span>
+        <span class="skill-tag">iTASSER</span>
+        <span class="skill-tag">SWISS-MODEL</span>
+        <span class="skill-tag">ChEMBL</span>
+        <span class="skill-tag">Drug Bank</span>
+        <span class="skill-tag">CADD</span>
+        <span class="skill-tag">ImageJ</span>
+        <span class="skill-tag">EZ-Rhizo-II</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <p class="skills-group-label">Wet Lab</p>
+      <div class="skills-list">
+        <span class="skill-tag">PCR</span>
+        <span class="skill-tag">Agarose Gel Electrophoresis</span>
+        <span class="skill-tag">SDS-PAGE</span>
+        <span class="skill-tag">Protein Purification</span>
+        <span class="skill-tag">Protein Quantification</span>
+        <span class="skill-tag">Mammalian Cell Culture</span>
+        <span class="skill-tag">Bacterial Culture</span>
+        <span class="skill-tag">DNA Extraction</span>
+        <span class="skill-tag">DNA Recombinant Techniques</span>
+        <span class="skill-tag">Antibiotic Testing</span>
+        <span class="skill-tag">Light Microscopy</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <p class="skills-group-label">Programming & OS</p>
+      <div class="skills-list">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Perl</span>
+        <span class="skill-tag">Linux / Bash</span>
+        <span class="skill-tag">Statistical Analysis</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <p class="section-label">Work Experience</p>
+
+    <div class="exp-item">
+      <span class="exp-date">Feb 2025 – Dec 2025</span>
+      <div>
+        <p class="exp-title">Research Associate</p>
+        <p class="exp-org">School of Biological Sciences, University of the Punjab — Lahore</p>
+        <p class="exp-desc">
+          Conducted extensive wet-lab research in molecular biology, including DNA Recombinant Techniques,
+          Protein Purification and Quantification. Concurrently performing bioinformatics analysis on
+          dengue virus genomics — covering genome mapping and evolutionary classification.<br/><br/>
+          Supervised by <a href="https://pu.edu.pk/faculty/detail/muhammad-farhan-ul-haque1" target="_blank">Dr. Farhan-Ul-Haque</a>.
         </p>
       </div>
     </div>
 
-    <br/>
-
-    <!-- SKILLS -->
-    <p class="section-label" style="margin-top:2rem;">Skills</p>
-    <div class="skills-list">
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">JavaScript</span>
-      <span class="skill-tag">React</span>
-      <span class="skill-tag">HTML / CSS</span>
-      <span class="skill-tag">Node.js</span>
-      <span class="skill-tag">SQL</span>
-      <span class="skill-tag">Git</span>
-      <span class="skill-tag">Figma</span>
-      <span class="skill-tag">Machine Learning</span>
+    <div class="exp-item">
+      <span class="exp-date">Dec 2023 – Feb 2025</span>
+      <div>
+        <p class="exp-title">Lab Instructor</p>
+        <p class="exp-org">BIRL, Lahore University of Management Sciences (LUMS) — Lahore</p>
+        <p class="exp-desc">
+          Built an NGS analysis pipeline using the Linux terminal at the
+          <a href="https://birl.lums.edu.pk/muhammad-abdullah-hassan/" target="_blank">Biomedical Informatics and Engineering Research Laboratory (BIRL)</a>.
+          Gained hands-on experience in high-throughput sequencing data processing and analysis.<br/><br/>
+          Supervised by <a href="https://lums.edu.pk/lums_employee/3846" target="_blank">Dr. Safee Ullah Chaudhary</a>.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <p class="section-label">Projects</p>
-    <div class="project-list">
+  <!-- RESEARCH -->
+  <section class="section" id="research">
+    <p class="section-label">Research</p>
 
-      <div class="project-card">
-        <div>
-          <p class="project-title">Smart Study Planner</p>
-          <p class="project-desc">
-            A web app that builds personalized study schedules using ML.
-            Analyses past performance and deadlines to suggest optimal
-            daily tasks. Final-year project.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">React</span>
-            <span class="project-tag">ML</span>
-          </div>
-        </div>
-        <a href="https://github.com" class="project-link">↗ GitHub</a>
+    <div class="research-card">
+      <p class="research-title">Dengue Virus Genomics — Genome Mapping & Evolutionary Classification</p>
+      <p class="research-meta">MPhil Research · University of the Punjab · 2025 – Present</p>
+      <p class="research-desc">
+        Conducting bioinformatics analysis of dengue virus genomes, including comparative genome mapping
+        and phylogenetic classification to understand viral evolution and strain diversity.
+        Supervised by Dr. Akhtar Ali.
+      </p>
+      <div class="research-tags">
+        <span class="research-tag">Genomics</span>
+        <span class="research-tag">Phylogenetics</span>
+        <span class="research-tag">Dengue Virus</span>
+        <span class="research-tag">Bioinformatics</span>
       </div>
+    </div>
 
-      <div class="project-card">
-        <div>
-          <p class="project-title">Campus Lost & Found</p>
-          <p class="project-desc">
-            A platform for students to report and recover lost items on
-            campus. Built with a team of 3 in a 48-hour hackathon.
-            Won best social impact award.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Node.js</span>
-            <span class="project-tag">MongoDB</span>
-            <span class="project-tag">Hackathon</span>
-          </div>
-        </div>
-        <a href="https://github.com" class="project-link">↗ GitHub</a>
+    <div class="research-card">
+      <p class="research-title">Antiviral Drug Design via CADD against MERS-CoV & RSV</p>
+      <p class="research-meta">Final Year Project · COMSATS University Islamabad · Feb – Aug 2023</p>
+      <p class="research-desc">
+        Designed antiviral drug candidates using Computer-Aided Drug Design (CADD) targeting the
+        Nucleocapsid protein of MERS-CoV and Respiratory Syncytial Virus (RSV).
+        Funded by the National Grassroots ICT Research Initiative (NGIRI).
+        Supervised by Dr. Qudsia Yousafi and co-supervised by Mr. Muhammad Saad Khan.
+      </p>
+      <div class="research-tags">
+        <span class="research-tag">CADD</span>
+        <span class="research-tag">Drug Design</span>
+        <span class="research-tag">MERS-CoV</span>
+        <span class="research-tag">RSV</span>
+        <span class="research-tag">Molecular Docking</span>
       </div>
+    </div>
 
-      <div class="project-card">
-        <div>
-          <p class="project-title">Expense Tracker CLI</p>
-          <p class="project-desc">
-            A command-line tool to track monthly spending with categories,
-            summaries, and CSV export. A personal-use project that turned
-            into a solid Python portfolio piece.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">CLI</span>
-          </div>
-        </div>
-        <a href="https://github.com" class="project-link">↗ GitHub</a>
+    <div class="research-card">
+      <p class="research-title">NGS Analysis Pipeline Development</p>
+      <p class="research-meta">Lab Instructor Work · BIRL, LUMS · 2023 – 2025</p>
+      <p class="research-desc">
+        Developed and maintained a Next-Generation Sequencing (NGS) analysis pipeline using the
+        Linux terminal, enabling high-throughput processing and interpretation of genomic data
+        at the Biomedical Informatics and Engineering Research Laboratory.
+      </p>
+      <div class="research-tags">
+        <span class="research-tag">NGS</span>
+        <span class="research-tag">Linux</span>
+        <span class="research-tag">Pipeline</span>
+        <span class="research-tag">Genomics</span>
       </div>
+    </div>
+  </section>
 
+  <!-- RESEARCH INTERESTS -->
+  <section class="section" id="interests">
+    <p class="section-label">Research Interests</p>
+    <div class="interests-grid">
+      <div class="interest-card">
+        <h4>Proteomics</h4>
+        <p>Large-scale study of proteins, their structures, and functions in biological systems.</p>
+      </div>
+      <div class="interest-card">
+        <h4>RNA-Seq Analysis</h4>
+        <p>Transcriptome profiling using next-generation sequencing to study gene expression.</p>
+      </div>
+      <div class="interest-card">
+        <h4>WGS Analysis</h4>
+        <p>Whole genome sequencing to identify variants and understand genetic architecture.</p>
+      </div>
+      <div class="interest-card">
+        <h4>Comparative Genomics</h4>
+        <p>Cross-species genomic comparisons to study evolution and conserved functions.</p>
+      </div>
+      <div class="interest-card">
+        <h4>Computational Drug Discovery</h4>
+        <p>In silico methods including CADD and molecular docking to identify drug candidates.</p>
+      </div>
+      <div class="interest-card">
+        <h4>Viral Genomics</h4>
+        <p>Genomic analysis of viruses such as dengue and coronaviruses to track evolution and pathogenesis.</p>
+      </div>
     </div>
   </section>
 
   <!-- EDUCATION -->
-  <section class="section">
+  <section class="section" id="education">
     <p class="section-label">Education</p>
+
     <div class="edu-item">
-      <p class="edu-degree">BSc Computer Science</p>
-      <p class="edu-school">XYZ University — Your City</p>
-      <p class="edu-year">2022 – 2026</p>
+      <span class="edu-year">Feb 2025 – Present</span>
+      <div>
+        <p class="edu-degree">MPhil in Biological Sciences</p>
+        <p class="edu-inst">University of the Punjab, Lahore</p>
+        <p class="edu-detail">
+          Research focus: Dengue virus genomics, genome mapping, and evolutionary classification.<br/>
+          Supervisor: Dr. Akhtar Ali
+        </p>
+      </div>
     </div>
+
     <div class="edu-item">
-      <p class="edu-degree">A-Levels · Mathematics, Physics, CS</p>
-      <p class="edu-school">ABC School</p>
-      <p class="edu-year">2020 – 2022</p>
+      <span class="edu-year">Sep 2019 – Aug 2023</span>
+      <div>
+        <p class="edu-degree">BSc in Bioinformatics</p>
+        <p class="edu-inst">COMSATS University Islamabad, Sahiwal Campus</p>
+        <p class="edu-detail">
+          CGPA: 3.21 / 4.0<br/>
+          Key subjects: Linux for Biological Sciences, Introduction to Bioinformatics,
+          Structural & Functional Bioinformatics, Genomics & Proteomics,
+          Bioinformatics Software Development, Biological Modelling & Simulation,
+          Statistical Methods in Biology, Modern Programming Languages.
+        </p>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <span class="edu-year">Jun 2017 – Aug 2019</span>
+      <div>
+        <p class="edu-degree">Higher Secondary School Certificate (Pre-Medical)</p>
+        <p class="edu-inst">Divisional Public School & College Sahiwal, Chichawatni Campus</p>
+        <p class="edu-detail">Major subjects: Biology, Physics, Chemistry, English</p>
+      </div>
+    </div>
+
+    <!-- AWARDS -->
+    <p class="section-label" style="margin-top:2.5rem;">Scholarships & Awards</p>
+    <div class="award-item">
+      <span class="award-dot"></span>
+      <p>Lump-Sum Scholarship — COMSATS University Islamabad, Sahiwal Campus (2019–2023)</p>
+    </div>
+    <div class="award-item">
+      <span class="award-dot"></span>
+      <p>Final Year Project Funding — National Grassroots ICT Research Initiative (NGIRI), 2022–2023</p>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="section" id="contact">
     <p class="section-label">Contact</p>
-    <p style="color:var(--muted); margin-bottom:1.2rem; max-width:420px;">
-      Open to internships, freelance projects, and interesting conversations.
-      Feel free to reach out.
+    <p style="color:var(--muted); margin-bottom:1.4rem; max-width:460px; font-size:.92rem;">
+      I am actively looking for PhD opportunities in Bioinformatics, Computational Biology,
+      or Molecular Biology. Feel free to reach out for collaborations or inquiries.
     </p>
-    <div class="contact-row">
-      <a href="mailto:you@email.com" class="contact-link">
+    <div class="contact-grid">
+      <a href="mailto:abdullahofficial82@gmail.com" class="contact-link">
         <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-        you@email.com
+        abdullahofficial82@gmail.com
       </a>
-      <a href="https://linkedin.com/in/yourname" class="contact-link" target="_blank">
-        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M8 11v5M8 8v.01M12 16v-5m0 0c0-1.5 4-1.5 4 0v5"/></svg>
-        LinkedIn
-      </a>
-      <a href="https://github.com/yourname" class="contact-link" target="_blank">
+      <a href="https://github.com/abdullahofficial82" class="contact-link" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        GitHub
+        github.com/abdullahofficial82
+      </a>
+      <a href="https://birl.lums.edu.pk/muhammad-abdullah-hassan/" class="contact-link" target="_blank">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        BIRL Lab Profile
+      </a>
+      <a href="https://pu.edu.pk/home/department/59/" class="contact-link" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        University of the Punjab
       </a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <span>© 2026 Your Name</span>
-    <span>Built with HTML · Hosted on GitHub Pages</span>
+    <span>© 2026 Muhammad Abdullah Hassan</span>
+    <span>Bioinformatics Researcher · Lahore, Pakistan</span>
   </footer>
 
 </div>
